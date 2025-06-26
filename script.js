@@ -94,7 +94,7 @@ PlayerCard.prototype.init = function() {
 
   const img = document.createElement('img');
   img.alt    = this.name;
-  img.onerror = () => (img.src = 'img/placeholder.png');
+  img.onerror = () => (img.src = 'placeholder.png');
   img.src    = `https://midfield.mlbstatic.com/v1/people/${this.id}/headshot/67/current`;
 
   const nameEl   = document.createElement('h2'); nameEl.textContent = this.name;
