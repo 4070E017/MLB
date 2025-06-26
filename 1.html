@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MLB 球員資料牆</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body class="dark">
+  <header>
+    <h1>MLB 球員資料牆</h1>
+    <div id="controls">
+      <select id="season-select"></select>
+      <select id="team-select"></select>
+      <select id="player-type-select">
+        <option value="hitter">打者</option>
+        <option value="pitcher">投手</option>
+      </select>
+      <select id="leader-select">
+        <option value="">— 請選擇排行 —</option>
+        <option value="homeRuns|全壘打|hitting">全壘打排行</option>
+        <option value="avg|打擊率|hitting">打擊率排行</option>
+        <option value="era|ERA|pitching">ERA排行</option>
+        <option value="wins|勝投|pitching">勝投排行</option>
+      </select>
+      <div class="toggle-wrapper">
+        <input type="checkbox" id="favorites-checkbox" />
+        <label for="favorites-checkbox" class="toggle-label">
+          <span class="toggle-ball"></span>
+        </label>
+        <span class="toggle-text">只顯示最愛</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="player-grid"></div>
+    <div id="bar-chart" style="display:none;"></div>
+  </main>
+
+  <div id="modal" class="hidden">
+    <div id="modal-content"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
