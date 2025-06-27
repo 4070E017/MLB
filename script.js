@@ -137,7 +137,27 @@ BarItem.prototype.init = function(maxValue) {
   requestAnimationFrame(() => bar.style.width = `${(this.value / maxValue) * 100}%`);
   return this.el;
 };
-
+function showBarModal(playerId, playerName, teamEng, value, label) {
+  modalContent.innerHTML = `
+    <h2>${playerName}</h2>
+    <img
+      src="https://midfield.mlbstatic.com/v1/people/${playerId}/headshot/180x180/current"
+      alt="${playerName}"
+      onerror="this.src='img/placeholder.png'"
+      style="display:block;
+             margin:0.5rem auto;
+             width:100px;
+             height:100px;
+             border-radius:50%;"
+    />
+    <p>${label}：${value}</p>
+    <button id="close-bar-modal">關閉</button>
+  `;
+  modal.classList.remove('hidden');
+  document
+    .querySelector('#close-bar-modal')
+    .addEventListener('click', () => modal.classList.add('hidden'));
+}
 async function getPitcherRole(id, season) {
   try {
     const sr = await axios.get(
